@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('./config/sessionConfig');
-const db = require('./config/db'); // This ensures the MongoDB connection is established
+const db = require('./config/db');
 const authRoutes = require('./app/routes/authRoutes');
 // const chatRoutes = require('./app/routes/chatRoutes'); // Commented out until implemented
 const path = require('path');
@@ -22,8 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes for authentication
 app.use('/api/auth', authRoutes);
 
-// Chat-related routes (if applicable)
-// app.use('/api/chat', chatRoutes); // Commented out until implemented
+// app.use('/api/chat', chatRoutes);
 
 // Serve HTML files or templates
 // Main or login page
@@ -38,7 +37,6 @@ app.get('/signup', (req, res) => {
 
 // Chat interface
 app.get('/chat', (req, res) => {
-  // You might want to add an authentication check here
   res.sendFile(path.join(__dirname, 'views', 'chat.html'));
 });
 

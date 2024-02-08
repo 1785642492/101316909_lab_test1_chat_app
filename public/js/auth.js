@@ -10,8 +10,7 @@ $(document).ready(function() {
         };
         $.post('/api/auth/signup', user, function(data) {
             alert('Signup successful');
-            // Optionally, you can redirect to the login page here
-            window.location.href = '/'; // Assuming the root URL is the login page
+            window.location.href = '/';
         }).fail(function(error) {
             alert('Signup failed');
         });
